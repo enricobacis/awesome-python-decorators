@@ -44,7 +44,6 @@ def classkeymemo(key):
         @wraps(fn)
         def _fn(self, *args, **kwargs):
             cache = _get_cache(self, fn)
-            print args, kwargs
             K = key(self, *args, **kwargs)
             try: ret = cache[K]
             except: ret = cache[K] = fn(self, *args, **kwargs)
