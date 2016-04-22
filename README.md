@@ -1,5 +1,4 @@
-# decorators
-DECORATORS DECORATORS DECORATORS !!!
+# awesome-python-decorators
 
 This repository wants to be a collection of useful decorators that I create for
 different purposes. Send a PR to contribute.
