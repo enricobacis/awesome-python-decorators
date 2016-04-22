@@ -2,14 +2,14 @@ from types import GeneratorType
 from functools import wraps
 
 
-def make_chunks(enum, size):
-    """Returns a chunk generator from an enumerable."""
-    for n in xrange(1 + len(enum) / size):
-        yield enum[n*size:(n+1)*size]
-
 def generator_of(size):
     """this decorator factory turns the input into a generator (if it's not
        already so), then process each chunk and yields it as function output."""
+
+    def make_chunks(enum):
+        """Returns a chunk generator from an enumerable."""
+        for n in xrange(1 + len(enum) / size):
+            yield enum[n*size:(n+1)*size]
 
     def generator(fn):
         """this is the decorator that does the work using the defined size."""
