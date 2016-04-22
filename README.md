@@ -6,10 +6,23 @@ different purposes. Send a PR to contribute.
 
 --------------------------------------------------------------------------------
 
+* **generator**:
+
+  - `generator_of(size)`: This decorator factory turns the input into a
+      generator (if it's not already so) chunking the input in pieces of the
+      specified `size`. Then it processes each chunk and yields it as function
+      output. This is useful when you want to create function that takes big
+      inputs and do not clutter all your memory.
+
+  - `generator`: This is the same as the one above but with a default chunk
+      size of 4096 (which if the input is in bytes, it is one memory page).
+
+--------------------------------------------------------------------------------
+
 * **memo**:
 
   - `memo`: The classical *memoize* decorator. It keeps a cache `arg -> result`
-    so you don't continue to perform the same computations.
+      so you don't continue to perform the same computations.
 
   - `keymemo`: It allows to specify a `key` function that takes the `args` and
       `kwargs` of the decorated function and computes a `key` value to use as
@@ -24,6 +37,8 @@ different purposes. Send a PR to contribute.
   - `classkeymemo`: It works like a combination of `classmemo` and `keymemo`, so
       it allows to specify a function that generate the cache key based on the
       function arguments and can be applied to class functions.
+
+--------------------------------------------------------------------------------
 
 * **ratelimit**:
 
